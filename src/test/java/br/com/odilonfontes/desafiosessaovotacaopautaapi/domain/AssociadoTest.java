@@ -1,4 +1,4 @@
-package br.com.odilonfontes.desafiosessaovotacaoapi.domain;
+package br.com.odilonfontes.desafiosessaovotacaopautaapi.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -25,10 +25,8 @@ public class AssociadoTest {
         @Test
         void verificarSeEstaoIguais() {
             associado1.setId(1L);
-            associado1.setNome("Teste");
             associado1.setCpf("00123456789");
             associado2.setId(associado1.getId());
-            associado2.setNome(associado1.getNome());
             associado2.setCpf(associado1.getCpf());
             assertThat(associado1).isEqualTo(associado2);
         }

@@ -1,4 +1,4 @@
-package br.com.odilonfontes.desafiosessaovotacaoapi.domain;
+package br.com.odilonfontes.desafiosessaovotacaopautaapi.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,10 +14,6 @@ public class Associado implements Serializable {
     @Id
     private Long id;
 
-    @Size(max = 80)
-    @NotNull @NotBlank
-    private String nome;
-
     @Size(max = 11)
     @NotNull @NotBlank
     private String cpf;
@@ -28,14 +24,6 @@ public class Associado implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getCpf() {
@@ -52,12 +40,11 @@ public class Associado implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Associado associado = (Associado) o;
         return Objects.equals(id, associado.id) &&
-                Objects.equals(nome, associado.nome) &&
                 Objects.equals(cpf, associado.cpf);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, cpf);
+        return Objects.hash(id, cpf);
     }
 }
