@@ -1,4 +1,4 @@
-package br.com.odilonfontes.desafiosessaovotacaoapi;
+package br.com.odilonfontes.desafiosessaovotacaopautaapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

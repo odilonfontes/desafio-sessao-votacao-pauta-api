@@ -1,4 +1,4 @@
-package br.com.odilonfontes.desafiosessaovotacaoapi.domain;
+package br.com.odilonfontes.desafiosessaovotacaopautaapi.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

@@ -1,4 +1,4 @@
-package br.com.odilonfontes.desafiosessaovotacaoapi.domain;
+package br.com.odilonfontes.desafiosessaovotacaopautaapi.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
