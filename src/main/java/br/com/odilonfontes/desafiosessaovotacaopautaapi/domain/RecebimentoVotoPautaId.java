@@ -1,7 +1,6 @@
 package br.com.odilonfontes.desafiosessaovotacaopautaapi.domain;
 
-import javax.persistence.Embeddable;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,11 +9,13 @@ import java.util.Objects;
 public class RecebimentoVotoPautaId implements Serializable {
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_receb_voto_pauta__sessao"))
     public SessaoVotacaoPauta sessaoVotacaoPauta;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_receb_voto_pauta__associado"))
     public Associado associado;
 
     public RecebimentoVotoPautaId() { }
