@@ -1,0 +1,12 @@
+version: "3"
+services:
+  api-database-postgresql:
+    container_name: api-database-postgresql
+    image: postgres:13.1
+    environment:
+      - POSTGRES_USER=desafiosessaovotacaopautaapi
+      - POSTGRES_PASSWORD=!@DesafioSessaoVotacaoPautaApi
+    ports:
+      - 55432:5432
+    volumes:
+      - ~/.docker/data-volume/desafiosessaovotacaopautaapi:/var/lib/postgresql/data/
