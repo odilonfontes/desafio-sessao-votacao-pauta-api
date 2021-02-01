@@ -1,5 +1,8 @@
 package br.com.odilonfontes.desafiosessaovotacaopautaapi.domain;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +14,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Associado implements Serializable {
 
     @Id
