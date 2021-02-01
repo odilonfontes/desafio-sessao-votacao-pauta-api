@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitPlatform.class)
 @SelectPackages({
-        "br.com.odilonfontes.desafiosessaovotacaopautaapi.domain"
+        "br.com.odilonfontes.desafiosessaovotacaopautaapi.domain",
+        "br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto"
 })
 public class UnitTests { }
