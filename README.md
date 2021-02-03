@@ -27,7 +27,7 @@ Execute os comandos abaixo:
 	$ docker-compose -f src/main/docker/postgressql.yml up -d
 	$ mvn spring-boot:run
 
-Documentação da API REST
+Documentação
 ------------------------
 
 Swagger: <http:localhost:8080/swagger-ui>
