@@ -1,4 +1,4 @@
-Desafio Sessão Votação API
+Desafio Sessão Votação API :
 ------------------------
 
 API REST para gerenciar sessões de votação em pauta
@@ -9,6 +9,11 @@ Requisitos
 - Docker
 - Java 1.8 +
 - Maven
+
+Funcionalidades
+------------------------
+
+- Cadastrar uma nova pauta
 
 Para construir a aplicação
 ------------------------
