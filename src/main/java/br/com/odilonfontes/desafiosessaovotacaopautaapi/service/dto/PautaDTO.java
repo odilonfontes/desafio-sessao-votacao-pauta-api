@@ -1,5 +1,6 @@
 package br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
@@ -9,9 +10,11 @@ public class PautaDTO implements Serializable {
     private Long id;
 
     @NotNull
+    @NotBlank
     private String titulo;
 
     @NotNull
+    @NotBlank
     private String descricao;
 
     public Long getId() {
