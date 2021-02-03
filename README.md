@@ -1,5 +1,5 @@
 ### Desafio Sessão Votação API (java 1.8 +)
--------------------
+------
 
 API REST para gerenciar sessões de votação em pauta
 
