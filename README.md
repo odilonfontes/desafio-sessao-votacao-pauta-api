@@ -14,6 +14,7 @@ Funcionalidades
 ------------------------
 
 - Cadastrar uma nova pauta
+- Abrir uma sessão de votação em pauta
 
 Para construir a aplicação
 ------------------------
