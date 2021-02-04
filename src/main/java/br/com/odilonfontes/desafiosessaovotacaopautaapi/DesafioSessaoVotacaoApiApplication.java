@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DesafiosSessaoVotacaoApiApplication {
+public class DesafioSessaoVotacaoApiApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DesafiosSessaoVotacaoApiApplication.class, args);
+        SpringApplication.run(DesafioSessaoVotacaoApiApplication.class, args);
     }
 }

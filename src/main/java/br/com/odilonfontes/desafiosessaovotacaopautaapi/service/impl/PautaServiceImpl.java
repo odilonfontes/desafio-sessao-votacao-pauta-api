@@ -12,12 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class PautaServiceImpl implements PautaService {
 
-    private final PautaRepository pautaRepository;
     private final PautaMapper pautaMapper;
+    private final PautaRepository pautaRepository;
 
     public PautaServiceImpl(PautaRepository pautaRepository, PautaMapper pautaMapper) {
-        this.pautaRepository = pautaRepository;
         this.pautaMapper = pautaMapper;
+        this.pautaRepository = pautaRepository;
     }
 
     @Override

@@ -12,9 +12,6 @@ import static org.mockito.Mockito.*;
 
 public class PautaServiceImplTest {
 
-    public static final String TITULO = "Título";
-    public static final String DESCRICAO = "Descricção";
-
     static PautaService pautaService;
     static PautaRepository pautaRepositoryMock;
     static PautaMapper pautaMapperMock;
@@ -35,8 +32,8 @@ public class PautaServiceImplTest {
         @BeforeEach
         void inicializarContexto() {
             pauta = new Pauta();
-            pauta.setTitulo(TITULO);
-            pauta.setDescricao(DESCRICAO);
+            pauta.setTitulo("Título");
+            pauta.setDescricao("Descricção");
             pautaDTO = gerarPautaDTO(pauta);
         }
 

@@ -54,4 +54,5 @@ public class Associado implements Serializable {
     public int hashCode() {
         return Objects.hash(id, cpf);
     }
+
 }

@@ -23,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class PautaResourceTest {
 
+    public static final String URL = "/api/v1/pauta";
     static MockMvc mockMvc;
     static ObjectMapper objectMapper;
     static PautaService pautaServiceMock;
@@ -36,9 +37,9 @@ public class PautaResourceTest {
         objectMapper = new ObjectMapper();
     }
 
-    @DisplayName("Ao chamar método post")
+    @DisplayName("Ao chamar método criarPauta")
     @Nested
-    class AoChamarMetodoPost {
+    class AoChamarMetodoCriarPauta {
         PautaDTO pautaDTO;
 
         @BeforeEach
@@ -46,27 +47,27 @@ public class PautaResourceTest {
             pautaDTO = new PautaDTO();
         }
 
-        @DisplayName("Dado que possua dados válidos, deveria salvar")
+        @DisplayName("Dado que possua dados válidos, deveria criar a pauta")
         @Test
-        void salvar() throws Exception {
+        void criarPauta() throws Exception {
             pautaDTO.setTitulo("Título");
             pautaDTO.setDescricao("Descrição");
             BDDMockito.given(pautaServiceMock.salvar(any())).willReturn(pautaDTO);
-            ResultActions resultActions = PautaResourceTest.salvar(pautaDTO);
-            resultActions.andExpect(status().isOk());
+            ResultActions resultActions = PautaResourceTest.criarPauta(pautaDTO);
+            resultActions.andExpect(status().isCreated());
             BDDMockito.verify(pautaServiceMock, times(1)).salvar(any());
         }
 
-        @DisplayName("Dado que possua dados inválidos, deveria retornar erro")
+        @DisplayName("Dado que possua dados inválidos, deveria retornar erro 400")
         @Test
         void retornarErro400() throws Exception {
-            ResultActions resultActions = PautaResourceTest.salvar(pautaDTO);
+            ResultActions resultActions = PautaResourceTest.criarPauta(pautaDTO);
             resultActions.andExpect(status().isBadRequest());
         }
     }
 
-    static ResultActions salvar(PautaDTO pautaDTO) throws Exception {
-        return mockMvc.perform(MockMvcRequestBuilders.post("/api/pauta")
+    static ResultActions criarPauta(PautaDTO pautaDTO) throws Exception {
+        return mockMvc.perform(MockMvcRequestBuilders.post(URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(pautaDTO)));

@@ -25,9 +25,9 @@ public class PautaResource {
     }
 
     @PostMapping("/v1/pauta")
-    public ResponseEntity<PautaDTO> salvar(@Valid @RequestBody PautaDTO pautaDTO) {
-        PautaDTO retornoPautaDTO = pautaService.salvar(pautaDTO);
-        return new ResponseEntity<>(retornoPautaDTO, HttpStatus.OK);
+    public ResponseEntity<PautaDTO> criarPauta(@Valid @RequestBody PautaDTO pautaDTO) {
+        PautaDTO retorno = pautaService.salvar(pautaDTO);
+        return new ResponseEntity<>(retorno, HttpStatus.CREATED);
     }
 
 }

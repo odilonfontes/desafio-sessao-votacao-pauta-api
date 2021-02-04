@@ -25,9 +25,9 @@ public class PautaMapperTest {
             pautaDTO = new PautaDTO();
         }
 
-        @DisplayName("Dado que convertido para entidade, deveriam possuir mesmo estado")
+        @DisplayName("Dado que convertido para entidade, deveria gerar a entidade conforme mapeamento")
         @Test
-        void verificarSePossuemMesmoEstado() {
+        void verificarSeEstaMapeada() {
             pautaDTO.setId(1L);
             pautaDTO.setTitulo("Título");
             pautaDTO.setDescricao("Descrição");
@@ -48,9 +48,9 @@ public class PautaMapperTest {
             pauta = new Pauta();
         }
 
-        @DisplayName("Dado que convertido para DTO, deveriam possuir mesmo estado")
+        @DisplayName("Dado que convertido para DTO, deveria gerar o DTO conforme mapeamento")
         @Test
-        void verificarSeEstaoIguais() {
+        void verificarSeEstaMapeado() {
             pauta.setId(1L);
             pauta.setTitulo("Título");
             pauta.setDescricao("Descrição");
