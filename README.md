@@ -1,4 +1,4 @@
-Desafio Sessões de Votação API :construction:
+desafio-sessao-votacao-api :construction:
 ------------------------
 
 API REST para gerenciar sessões de votação em pauta
