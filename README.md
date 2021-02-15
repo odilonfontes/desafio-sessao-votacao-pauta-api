@@ -36,4 +36,4 @@ Execute os comandos abaixo:
 Documentação
 ------------------------
 
-Swagger: <http:localhost:8080/swagger-ui>
+Swagger: <http://localhost:8080/swagger-ui/index.html>
