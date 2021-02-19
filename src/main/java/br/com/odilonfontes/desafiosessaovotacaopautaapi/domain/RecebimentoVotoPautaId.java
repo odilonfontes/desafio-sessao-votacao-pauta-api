@@ -8,6 +8,8 @@ import java.util.Objects;
 @Embeddable
 public class RecebimentoVotoPautaId implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_receb_voto_pauta__sessao"))

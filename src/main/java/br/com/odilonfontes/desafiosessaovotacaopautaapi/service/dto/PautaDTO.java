@@ -7,6 +7,8 @@ import java.util.Objects;
 
 public class PautaDTO implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private Long id;
 
     @NotNull
@@ -39,6 +41,10 @@ public class PautaDTO implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Boolean possuiId() {
+        return id != null;
     }
 
     @Override

@@ -6,6 +6,8 @@ import java.util.Objects;
 
 public class SessaoVotacaoPautaDTO implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private Long id;
     private LocalDateTime abertura;
     private Long pautaId;

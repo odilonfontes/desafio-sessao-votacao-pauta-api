@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URISyntaxException;
+
 import javax.validation.Valid;
 
 @RestController
@@ -25,7 +27,11 @@ public class PautaResource {
     }
 
     @PostMapping("/v1/pauta")
-    public ResponseEntity<PautaDTO> criarPauta(@Valid @RequestBody PautaDTO pautaDTO) {
+    public ResponseEntity<PautaDTO> criarPauta(@Valid @RequestBody PautaDTO pautaDTO) throws URISyntaxException {
+        if (pautaDTO.possuiId()) {
+            throw new IllegalArgumentException("O id não deve ser informado");
+        }
+
         PautaDTO retorno = pautaService.salvar(pautaDTO);
         return new ResponseEntity<>(retorno, HttpStatus.CREATED);
     }

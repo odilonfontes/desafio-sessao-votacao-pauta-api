@@ -1,4 +1,4 @@
-package br.com.odilonfontes.desafiosessaovotacaopautaapi.configuration;
+package br.com.odilonfontes.desafiosessaovotacaopautaapi.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,27 +11,26 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.util.Collections;
 
 @Configuration
-public class SwaggerConfiguration {
-
-    public static final String CAMINHO_API = "/api/**";
-    private static final String TITULO_API = "API REST para gerenciar sessões de votação em pauta";
-    private static final String VERSAO_API = "SNAPSHOT";
+public class SwaggerConfig {
+    public static final String CAMINHO_ENDPOINTS = "/api/**";
+    private static final String TITULO = "API REST para gerenciar sessões de votação em pauta";
+    private static final String VERSAO = "SNAPSHOT";
 
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.ant(CAMINHO_API))
+                .paths(PathSelectors.ant(CAMINHO_ENDPOINTS))
                 .build()
                 .apiInfo(getApiInfo());
     }
 
     private ApiInfo getApiInfo() {
         return new ApiInfo(
-                TITULO_API,
+                TITULO,
                 null,
-                VERSAO_API,
+                VERSAO,
                 null,
                 null,
                 null,
