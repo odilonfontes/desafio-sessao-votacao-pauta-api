@@ -16,6 +16,12 @@ Funcionalidades
 - Cadastrar uma nova pauta
 - Abrir uma sessão de votação em pauta
 
+Demonstração
+------------------------
+
+<https://sessao-votacao-pauta-api.herokuapp.com/swagger-ui/index.html>
+
+
 Para construir a aplicação
 ------------------------
 
@@ -31,7 +37,7 @@ Execute os comandos abaixo:
 
 	$ cd desafio-sessao-votacao-pauta-api
 	$ docker-compose -f src/main/docker/postgressql.yml up -d
-	$ mvn spring-boot:run
+	$ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 
 Documentação
 ------------------------
