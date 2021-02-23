@@ -29,7 +29,7 @@ public class PautaResource {
     @PostMapping("/v1/pauta")
     public ResponseEntity<PautaDTO> criarPauta(@Valid @RequestBody PautaDTO pautaDTO) throws URISyntaxException {
         if (pautaDTO.possuiId()) {
-            throw new IllegalArgumentException("O id não deve ser informado");
+            throw new IllegalArgumentException("Uma nova pauta não pode ter um ID definido");
         }
 
         PautaDTO retorno = pautaService.salvar(pautaDTO);

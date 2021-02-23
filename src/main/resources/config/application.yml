@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    active: prod
+  application:
+    name: desafio-sessao-votacao-api
