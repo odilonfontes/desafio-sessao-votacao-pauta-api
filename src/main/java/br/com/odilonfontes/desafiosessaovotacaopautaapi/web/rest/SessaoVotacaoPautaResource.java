@@ -1,7 +1,7 @@
 package br.com.odilonfontes.desafiosessaovotacaopautaapi.web.rest;
 
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.SessaoVotacaoPautaService;
-import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.SessaoVotacaoPautaAberturaDTO;
+import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.AberturaSessaoVotacaoPautaDTO;
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.SessaoVotacaoPautaDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,10 +26,10 @@ public class SessaoVotacaoPautaResource {
     }
 
     @PostMapping("/v1/sessao-votacao-pauta")
-    public ResponseEntity<SessaoVotacaoPautaDTO> criarSessaoVotacaoPauta(
-            @Valid @RequestBody SessaoVotacaoPautaAberturaDTO sessaoVotacaoPautaAberturaDTO
+    public ResponseEntity<SessaoVotacaoPautaDTO> abrirSessaoVotacaoPauta(
+            @Valid @RequestBody AberturaSessaoVotacaoPautaDTO aberturaSessaoVotacaoPautaDTO
     ) {
-        SessaoVotacaoPautaDTO retorno = sessaoVotacaoPautaService.salvar(sessaoVotacaoPautaAberturaDTO);
+        SessaoVotacaoPautaDTO retorno = sessaoVotacaoPautaService.salvar(aberturaSessaoVotacaoPautaDTO);
         return new ResponseEntity<>(retorno, HttpStatus.CREATED);
     }
 

@@ -1,7 +1,7 @@
 package br.com.odilonfontes.desafiosessaovotacaopautaapi.service.mapper;
 
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.domain.SessaoVotacaoPauta;
-import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.SessaoVotacaoPautaAberturaDTO;
+import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.AberturaSessaoVotacaoPautaDTO;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,11 +17,11 @@ public class SessaoVotacaoPautaAberturaMapperTest {
     @DisplayName("Ao instanciar um objeto da classe AberturaDaSessaoVotacaoPautaDTO")
     @Nested
     class AoInstanciarUmObjetoDaClasseSessaoVotacaoPautaAberturaDTO {
-        SessaoVotacaoPautaAberturaDTO sessaoVotacaoPautaAberturaDTO;
+        AberturaSessaoVotacaoPautaDTO sessaoVotacaoPautaAberturaDTO;
 
         @BeforeEach
         void inicializarContexto() {
-            sessaoVotacaoPautaAberturaDTO = new SessaoVotacaoPautaAberturaDTO();
+            sessaoVotacaoPautaAberturaDTO = new AberturaSessaoVotacaoPautaDTO();
         }
 
         @DisplayName("Dado que convertido para entidade, deveria gerar a entidade conforme mapeamento")

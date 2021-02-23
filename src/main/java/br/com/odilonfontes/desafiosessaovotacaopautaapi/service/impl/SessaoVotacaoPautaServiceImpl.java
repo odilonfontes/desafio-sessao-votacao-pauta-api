@@ -3,7 +3,7 @@ package br.com.odilonfontes.desafiosessaovotacaopautaapi.service.impl;
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.domain.SessaoVotacaoPauta;
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.repository.SessaoVotacaoPautaRepository;
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.SessaoVotacaoPautaService;
-import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.SessaoVotacaoPautaAberturaDTO;
+import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.AberturaSessaoVotacaoPautaDTO;
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.SessaoVotacaoPautaDTO;
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.mapper.AberturaSessaoVotacaoPautaMapper;
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.mapper.SessaoVotacaoPautaMapper;
@@ -27,7 +27,7 @@ public class SessaoVotacaoPautaServiceImpl implements SessaoVotacaoPautaService 
     }
 
     @Override
-    public SessaoVotacaoPautaDTO salvar(SessaoVotacaoPautaAberturaDTO sessaoVotacaoPautaAberturaDTO) {
+    public SessaoVotacaoPautaDTO salvar(AberturaSessaoVotacaoPautaDTO sessaoVotacaoPautaAberturaDTO) {
         SessaoVotacaoPauta sessaoVotacaoPauta = aberturaSessaoVotacaoPautaMapper
                 .converterParaEntidade(sessaoVotacaoPautaAberturaDTO);
         sessaoVotacaoPautaRepository.save(sessaoVotacaoPauta);

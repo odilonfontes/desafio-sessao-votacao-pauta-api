@@ -12,13 +12,13 @@ public class SessaoVotacaoPautaAberturaDTOTest {
     @DisplayName("Ao instanciar objetos da classe AberturaDaSessaoVotacaoPautaDTO")
     @Nested
     class AoInstanciarObjetosDaClasseSessaoVotacaoPautaAberturaDTO {
-        SessaoVotacaoPautaAberturaDTO sessaoVotacaoPautaAberturaDTO1;
-        SessaoVotacaoPautaAberturaDTO sessaoVotacaoPautaAberturaDTO2;
+        AberturaSessaoVotacaoPautaDTO sessaoVotacaoPautaAberturaDTO1;
+        AberturaSessaoVotacaoPautaDTO sessaoVotacaoPautaAberturaDTO2;
 
         @BeforeEach
         void inicializarContexto() {
-            sessaoVotacaoPautaAberturaDTO1 = new SessaoVotacaoPautaAberturaDTO();
-            sessaoVotacaoPautaAberturaDTO2 = new SessaoVotacaoPautaAberturaDTO();
+            sessaoVotacaoPautaAberturaDTO1 = new AberturaSessaoVotacaoPautaDTO();
+            sessaoVotacaoPautaAberturaDTO2 = new AberturaSessaoVotacaoPautaDTO();
         }
 
         @DisplayName("Dado que possuam mesmo estado, deveriam ser iguais")

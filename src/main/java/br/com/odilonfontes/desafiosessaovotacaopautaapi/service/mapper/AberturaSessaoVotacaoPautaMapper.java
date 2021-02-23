@@ -1,7 +1,7 @@
 package br.com.odilonfontes.desafiosessaovotacaopautaapi.service.mapper;
 
 import br.com.odilonfontes.desafiosessaovotacaopautaapi.domain.SessaoVotacaoPauta;
-import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.SessaoVotacaoPautaAberturaDTO;
+import br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto.AberturaSessaoVotacaoPautaDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -13,6 +13,6 @@ public interface AberturaSessaoVotacaoPautaMapper {
     @Mapping(ignore = true, target = "termino")
     @Mapping(source = "pautaId", target = "pauta")
     @Mapping(source = "duracao", target = "duracao", defaultValue = "1")
-    SessaoVotacaoPauta converterParaEntidade(SessaoVotacaoPautaAberturaDTO sessaoVotacaoPautaAberturaDTO);
+    SessaoVotacaoPauta converterParaEntidade(AberturaSessaoVotacaoPautaDTO sessaoVotacaoPautaAberturaDTO);
 
 }

@@ -8,6 +8,6 @@ spring:
     properties:
       hibernate.format_sql: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/desafiosessaovotacaopautaapi #${JDBC_DATABASE_URL}
-    username: desafiosessaovotacaopautaapi #${JDBC_DATABASE_USERNAME}
-    password: desafiosessaovotacaopautaapi #${JDBC_DATABASE_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/desafiosessaovotacaopautaapi
+    username: desafiosessaovotacaopautaapi
+    password: desafiosessaovotacaopautaapi
