@@ -13,8 +13,9 @@ Requisitos
 Funcionalidades
 ------------------------
 
-- Cadastrar uma nova pauta
-- Abrir uma sessão de votação em pauta
+- Cadastrar nova pauta
+- Consultar pautas
+- Abrir sessão de votação em pauta
 
 Demonstração
 ------------------------
