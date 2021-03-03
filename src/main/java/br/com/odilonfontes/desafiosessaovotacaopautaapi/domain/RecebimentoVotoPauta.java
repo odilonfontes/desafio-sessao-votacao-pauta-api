@@ -21,8 +21,8 @@ public class RecebimentoVotoPauta implements Serializable {
 
     public RecebimentoVotoPauta() { }
 
-    public RecebimentoVotoPauta(SessaoVotacaoPauta sessaoVotacaoPauta, Associado associado) {
-        this.recebimentoVotoPautaId = new RecebimentoVotoPautaId(sessaoVotacaoPauta, associado);
+    public RecebimentoVotoPauta(SessaoVotacao sessaoVotacao, Associado associado) {
+        this.recebimentoVotoPautaId = new RecebimentoVotoPautaId(sessaoVotacao, associado);
     }
 
     public RecebimentoVotoPautaId getRecebimentoVotoPautaId() {

@@ -24,11 +24,11 @@ public class RecebimentoVotoPautaIdTest {
         @DisplayName("Dado que possuam mesmo estado, deveriam ser iguais")
         @Test
         void verificarSeEstaoIguais() {
-            SessaoVotacaoPauta sessaoVotacaoPauta = new SessaoVotacaoPauta();
-            recebimentoVotoPautaId1.setSessaoVotacaoPauta(sessaoVotacaoPauta);
+            SessaoVotacao sessaoVotacao = new SessaoVotacao();
+            recebimentoVotoPautaId1.setSessaoVotacao(sessaoVotacao);
             Associado associado = new Associado();
             recebimentoVotoPautaId1.setAssociado(associado);
-            recebimentoVotoPautaId2.setSessaoVotacaoPauta(recebimentoVotoPautaId1.getSessaoVotacaoPauta());
+            recebimentoVotoPautaId2.setSessaoVotacao(recebimentoVotoPautaId1.getSessaoVotacao());
             recebimentoVotoPautaId2.setAssociado(recebimentoVotoPautaId1.getAssociado());
             assertThat(recebimentoVotoPautaId1).isEqualTo(recebimentoVotoPautaId2);
         }

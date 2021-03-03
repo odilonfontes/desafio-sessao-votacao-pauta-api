@@ -13,7 +13,7 @@ public class RecebimentoVotoPautaId implements Serializable {
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_receb_voto_pauta__sessao"))
-    public SessaoVotacaoPauta sessaoVotacaoPauta;
+    public SessaoVotacao sessaoVotacao;
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
@@ -22,17 +22,17 @@ public class RecebimentoVotoPautaId implements Serializable {
 
     public RecebimentoVotoPautaId() { }
 
-    public RecebimentoVotoPautaId(SessaoVotacaoPauta sessaoVotacaoPauta, Associado associado) {
-        this.sessaoVotacaoPauta = sessaoVotacaoPauta;
+    public RecebimentoVotoPautaId(SessaoVotacao sessaoVotacao, Associado associado) {
+        this.sessaoVotacao = sessaoVotacao;
         this.associado = associado;
     }
 
-    public SessaoVotacaoPauta getSessaoVotacaoPauta() {
-        return sessaoVotacaoPauta;
+    public SessaoVotacao getSessaoVotacao() {
+        return sessaoVotacao;
     }
 
-    public void setSessaoVotacaoPauta(SessaoVotacaoPauta sessaoVotacaoPauta) {
-        this.sessaoVotacaoPauta = sessaoVotacaoPauta;
+    public void setSessaoVotacao(SessaoVotacao sessaoVotacao) {
+        this.sessaoVotacao = sessaoVotacao;
     }
 
     public Associado getAssociado() {
@@ -48,13 +48,13 @@ public class RecebimentoVotoPautaId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RecebimentoVotoPautaId that = (RecebimentoVotoPautaId) o;
-        return Objects.equals(sessaoVotacaoPauta, that.sessaoVotacaoPauta) &&
+        return Objects.equals(sessaoVotacao, that.sessaoVotacao) &&
                 Objects.equals(associado, that.associado);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sessaoVotacaoPauta, associado);
+        return Objects.hash(sessaoVotacao, associado);
     }
 
 }

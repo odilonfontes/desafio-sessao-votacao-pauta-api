@@ -10,6 +10,8 @@ import org.junit.jupiter.api.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+import java.util.Set;
+
 public class PautaServiceImplTest {
 
     static PautaService pautaService;
@@ -32,30 +34,33 @@ public class PautaServiceImplTest {
         @BeforeEach
         void inicializarContexto() {
             pauta = new Pauta();
-            pauta.setTitulo("Título");
-            pauta.setDescricao("Descricção");
-            pautaDTO = gerarPautaDTO(pauta);
+            pautaDTO = new PautaDTO();
         }
 
         @DisplayName("Dado que possui dados válidos, deveria salvar")
         @Test
         void salvar() {
-            when(pautaMapperMock.converterParaEntidade(any())).thenReturn(pauta);
-            when(pautaRepositoryMock.save(any())).thenReturn(pauta);
-            when(pautaMapperMock.converterParaDTO(any())).thenReturn(pautaDTO);
-            pautaDTO = pautaService.salvar(any());
+            when(pautaMapperMock.converterParaEntidade(any())).thenReturn(any());
+            when(pautaRepositoryMock.save(pauta)).thenReturn(any());
+            when(pautaMapperMock.converterParaDTO(pauta)).thenReturn(any());
+            pautaDTO = pautaService.salvar(pautaDTO);
             verify(pautaMapperMock, times(1)).converterParaEntidade(any());
-            verify(pautaRepositoryMock, times(1)).save(any());
+            verify(pautaRepositoryMock,times(1)).save(any());
             verify(pautaMapperMock, times(1)).converterParaDTO(any());
         }
     }
 
-    static PautaDTO gerarPautaDTO(Pauta pauta) {
-        PautaDTO pautaDTO = new PautaDTO();
-        pautaDTO.setId(pauta.getId());
-        pautaDTO.setTitulo(pauta.getTitulo());
-        pautaDTO.setDescricao(pauta.getDescricao());
-        return pautaDTO;
+    @DisplayName("Ao chamar o método consultarTodasPautas")
+    @Nested
+    class AoChamarMetodoConsultar {
+        Set<PautaDTO> pautasDTO;
+
+        @DisplayName("Dado que possua pautas cadastradas, deveria retornar todas as pautas")
+        @Test
+        void consultarTodasPautas() {
+            pautasDTO = pautaService.consultarTodasPautas();
+            verify(pautaRepositoryMock, times(1)).findAll();
+        }
     }
 
 }

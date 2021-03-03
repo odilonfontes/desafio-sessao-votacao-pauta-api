@@ -1,16 +1,33 @@
-package br.com.odilonfontes.desafiosessaovotacaopautaapi.service.dto;
+package br.com.odilonfontes.desafiosessaovotacaopautaapi.domain;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class SessaoVotacaoPautaDTO implements Serializable {
+@Entity
+public class SessaoVotacao implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public SessaoVotacao() {
+        abertura = LocalDateTime.now();
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
     private LocalDateTime abertura;
-    private Long pautaId;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_sessao_votacao__pauta"))
+    private Pauta pauta;
+
+    @NotNull
     private LocalDateTime termino;
 
     public Long getId() {
@@ -29,12 +46,12 @@ public class SessaoVotacaoPautaDTO implements Serializable {
         this.abertura = abertura;
     }
 
-    public Long getPautaId() {
-        return pautaId;
+    public Pauta getPauta() {
+        return pauta;
     }
 
-    public void setPautaId(Long pautaId) {
-        this.pautaId = pautaId;
+    public void setPauta(Pauta pauta) {
+        this.pauta = pauta;
     }
 
     public LocalDateTime getTermino() {
@@ -45,20 +62,24 @@ public class SessaoVotacaoPautaDTO implements Serializable {
         this.termino = termino;
     }
 
+    public void setDuracao(Integer duracao) {
+        this.termino = (abertura != null && duracao != null) ? abertura.plusMinutes(duracao) : null;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SessaoVotacaoPautaDTO that = (SessaoVotacaoPautaDTO) o;
+        SessaoVotacao that = (SessaoVotacao) o;
         return Objects.equals(id, that.id) &&
                 Objects.equals(abertura, that.abertura) &&
-                Objects.equals(pautaId, that.pautaId) &&
+                Objects.equals(pauta, that.pauta) &&
                 Objects.equals(termino, that.termino);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, abertura, pautaId, termino);
+        return Objects.hash(id, abertura, pauta, termino);
     }
 
 }

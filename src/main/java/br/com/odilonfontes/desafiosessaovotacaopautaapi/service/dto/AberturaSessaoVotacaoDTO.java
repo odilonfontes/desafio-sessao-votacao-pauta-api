@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class AberturaSessaoVotacaoPautaDTO implements Serializable {
+public class AberturaSessaoVotacaoDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,7 +33,7 @@ public class AberturaSessaoVotacaoPautaDTO implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AberturaSessaoVotacaoPautaDTO that = (AberturaSessaoVotacaoPautaDTO) o;
+        AberturaSessaoVotacaoDTO that = (AberturaSessaoVotacaoDTO) o;
         return Objects.equals(pautaId, that.pautaId) &&
                 Objects.equals(duracao, that.duracao);
     }

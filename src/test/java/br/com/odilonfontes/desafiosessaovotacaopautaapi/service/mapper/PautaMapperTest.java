@@ -15,32 +15,9 @@ public class PautaMapperTest {
         pautaMapper = new PautaMapperImpl();
     }
 
-    @DisplayName("Ao instanciar um objeto da classe PautaDTO")
+    @DisplayName("Ao chamar o método converterParaDTO")
     @Nested
-    class AoInstanciarUmObjetoDaClassePautaDTO {
-        PautaDTO pautaDTO;
-
-        @BeforeEach
-        void inicializarContexto() {
-            pautaDTO = new PautaDTO();
-        }
-
-        @DisplayName("Dado que convertido para entidade, deveria gerar a entidade conforme mapeamento")
-        @Test
-        void verificarSeEstaMapeada() {
-            pautaDTO.setId(1L);
-            pautaDTO.setTitulo("Título");
-            pautaDTO.setDescricao("Descrição");
-            Pauta pauta = pautaMapper.converterParaEntidade(pautaDTO);
-            assertEquals(pautaDTO.getId(), pauta.getId());
-            assertEquals(pautaDTO.getTitulo(), pauta.getTitulo());
-            assertEquals(pautaDTO.getDescricao(), pauta.getDescricao());
-        }
-    }
-
-    @DisplayName("Ao instanciar um objeto da classe Pauta")
-    @Nested
-    class AoInstanciarUmObjetoDaClassePauta {
+    class AoChamarMetodoConverterParaDTO {
         Pauta pauta;
 
         @BeforeEach
@@ -48,7 +25,7 @@ public class PautaMapperTest {
             pauta = new Pauta();
         }
 
-        @DisplayName("Dado que convertido para DTO, deveria gerar o DTO conforme mapeamento")
+        @DisplayName("Dado que seja passada uma entidade como parâmetro, deveria converter para DTO")
         @Test
         void verificarSeEstaMapeado() {
             pauta.setId(1L);
@@ -58,6 +35,29 @@ public class PautaMapperTest {
             assertEquals(pauta.getId(), pautaDTO.getId());
             assertEquals(pauta.getTitulo(), pautaDTO.getTitulo());
             assertEquals(pauta.getDescricao(), pautaDTO.getDescricao());
+        }
+    }
+
+    @DisplayName("Ao chamar o método converterParaEntidade")
+    @Nested
+    class AoChamarMetodoConverterParaEntidade {
+        PautaDTO pautaDTO;
+
+        @BeforeEach
+        void inicializarContexto() {
+            pautaDTO = new PautaDTO();
+        }
+
+        @DisplayName("Dado que seja passada um DTO como parâmetro, deveria converter para Entidade")
+        @Test
+        void verificarSeEstaMapeada() {
+            pautaDTO.setId(1L);
+            pautaDTO.setTitulo("Título");
+            pautaDTO.setDescricao("Descrição");
+            Pauta pauta = pautaMapper.converterParaEntidade(pautaDTO);
+            assertEquals(pautaDTO.getId(), pauta.getId());
+            assertEquals(pautaDTO.getTitulo(), pauta.getTitulo());
+            assertEquals(pautaDTO.getDescricao(), pauta.getDescricao());
         }
     }
 
