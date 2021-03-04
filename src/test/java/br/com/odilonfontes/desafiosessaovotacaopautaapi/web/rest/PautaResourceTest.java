@@ -19,8 +19,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-// @SpringBootTest
-// @AutoConfigureMockMvc
+import java.util.Collections;
+import java.util.Set;
+
+@SpringBootTest
+@AutoConfigureMockMvc
 public class PautaResourceTest {
 
     public static final String URI_PAUTA = "/api/v1/pauta";
@@ -30,11 +33,11 @@ public class PautaResourceTest {
 
     @BeforeAll
     static void inicializarContexto() {
-        // pautaServiceMock = mock(PautaServiceImpl.class);
-        // mockMvc = MockMvcBuilders
-        //         .standaloneSetup(new PautaResource(pautaServiceMock))
-        //         .build();
-        // objectMapper = new ObjectMapper();
+        pautaServiceMock = mock(PautaServiceImpl.class);
+        mockMvc = MockMvcBuilders
+                .standaloneSetup(new PautaResource(pautaServiceMock))
+                .build();
+        objectMapper = new ObjectMapper();
     }
 
     @DisplayName("Ao chamar método criarPauta")
@@ -49,44 +52,56 @@ public class PautaResourceTest {
 
         @DisplayName("Dado que possua dados válidos, deveria criar uma nova pauta")
         @Test
-        void criarPauta() throws Exception {
-            // BDDMockito.given(pautaServiceMock.salvar(any())).willReturn(pautaDTO);
-            // ResultActions resultActions = PautaResourceTest.criarPauta(pautaDTO);
-            // resultActions.andExpect(status().isCreated());
-            // BDDMockito.verify(pautaServiceMock, times(1)).salvar(any());
+        void deveriaCriarNovaPauta() throws Exception {
+            pautaDTO.setTitulo("titulo");
+            pautaDTO.setDescricao("descricao");
+            BDDMockito.given(pautaServiceMock.salvar(any())).willReturn(pautaDTO);
+            ResultActions resultActions = criarPauta(pautaDTO);
+            resultActions.andExpect(status().isCreated());
+            BDDMockito.verify(pautaServiceMock, times(1)).salvar(any());
         }
 
         @DisplayName("Dado que possua dados inválidos, deveria retornar erro 400")
         @Test
-        void retornarErro400() throws Exception {
-            // ResultActions resultActions = PautaResourceTest.criarPauta(pautaDTO);
-            // resultActions.andExpect(status().isBadRequest());
+        void deveriaRetornarErro400() throws Exception {
+            pautaDTO.setTitulo(null);
+            pautaDTO.setDescricao(null);
+            ResultActions resultActions = criarPauta(pautaDTO);
+            resultActions.andExpect(status().isBadRequest());
+        }
+
+        ResultActions criarPauta(PautaDTO pautaDTO) throws Exception {
+            return mockMvc.perform(MockMvcRequestBuilders.post(URI_PAUTA)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .accept(MediaType.APPLICATION_JSON)
+                    .content(objectMapper.writeValueAsString(pautaDTO)));
         }
     }
 
-    static ResultActions criarPauta(PautaDTO pautaDTO) throws Exception {
-        return mockMvc.perform(MockMvcRequestBuilders.post(URI_PAUTA)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(pautaDTO)));
-    }
+    @DisplayName("Ao chamar método consultarTodasPautas")
+    @Nested
+    class AoChamarMetodoConsultarPautas {
+        Set<PautaDTO> pautasDTO;
 
-    // @DisplayName("Ao chamar método consultarTodasPautas")
-    // @Nested
-    // class AoChamarMetodoConsultarPautas {
-    //     @BeforeEach
-    //     void inicializarContexto() {
-
-    //     }
+        @BeforeEach
+        void inicializarContexto() {
+            pautasDTO = Collections.singleton(new PautaDTO());
+        }
         
-    //     @DisplayName("Dado que possua pautas cadastradas, deveria retornar todas as pautas")
-    //     @Test
-    //     void consultarTodasPautas() throws Exception {
-            // BDDMockito.given(pautaServiceMock.consultarTodas()).willReturn(pautaDTO);
-            // ResultActions resultActions = PautaResourceTest.criarPauta(pautaDTO);
-            // resultActions.andExpect(status().isCreated());
-            // BDDMockito.verify(pautaServiceMock, times(1)).salvar(any());
-    //     }
-    // }
+        @DisplayName("Dado que possua pautas cadastradas, deveria retornar todas as pautas")
+        @Test
+        void deveriaConsultarTodasPautas() throws Exception {
+            BDDMockito.given(pautaServiceMock.consultarTodasPautas()).willReturn(pautasDTO);
+            ResultActions resultActions = consultarTodasPautas();
+            resultActions.andExpect(status().isOk());
+            BDDMockito.verify(pautaServiceMock, times(1)).consultarTodasPautas();
+        }
+
+        ResultActions consultarTodasPautas() throws Exception {
+            return mockMvc.perform(MockMvcRequestBuilders.get(URI_PAUTA)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .accept(MediaType.APPLICATION_JSON));
+        }
+    }
 
 }
