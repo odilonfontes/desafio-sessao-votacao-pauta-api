@@ -1,12 +1,6 @@
 spring:
   jpa:
     show-sql: false
-    open-in-view: false
-    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate.format_sql: true
   datasource:
     url: ${JDBC_DATABASE_URL}
     username: ${JDBC_DATABASE_USERNAME}

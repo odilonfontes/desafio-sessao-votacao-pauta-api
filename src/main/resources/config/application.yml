@@ -3,3 +3,10 @@ spring:
     active: prod
   application:
     name: desafio-sessao-votacao-api
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: true
