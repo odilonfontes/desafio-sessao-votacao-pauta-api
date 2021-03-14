@@ -20,7 +20,7 @@ Funcionalidades
 Demonstração
 ------------------------
 
-<https://sessao-votacao-pauta-api.herokuapp.com/swagger-ui/index.html>
+<https://desafio-sessao-votacao-api.herokuapp.com/swagger-ui/index.html>
 
 
 Para construir a aplicação
@@ -28,15 +28,15 @@ Para construir a aplicação
 
 Execute os comandos abaixo:
 
-	$ cd desafio-sessao-votacao-pauta-api
-	$ mvn clean install
+	$ cd desafio-sessao-votacao-api
+	$ mvn clean install -DskipTests
 
 Para executar a aplicação
 ------------------------
 
 Execute os comandos abaixo:
 
-	$ cd desafio-sessao-votacao-pauta-api
+	$ cd desafio-sessao-votacao-api
 	$ docker-compose -f src/main/docker/postgressql.yml up -d
 	$ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 
