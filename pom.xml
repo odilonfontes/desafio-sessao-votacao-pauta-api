@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.odilonfontes</groupId>
-    <artifactId>desafio-sessao-votacao-pauta-api</artifactId>
+    <artifactId>desafio-sessao-votacao-api</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>desafio-sessao-votacao-pauta-api</name>
-    <description>API REST para gerenciar sessões de votação em pauta</description>
+    <name>desafio-sessao-votacao-api</name>
+    <description>API REST para gerenciar sessões de votação</description>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

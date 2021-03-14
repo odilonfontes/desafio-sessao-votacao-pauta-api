@@ -13,7 +13,7 @@ import java.util.Collections;
 @Configuration
 public class SwaggerConfig {
     public static final String CAMINHO_ENDPOINTS = "/api/**";
-    private static final String TITULO = "API REST para gerenciar sessões de votação em pauta";
+    private static final String TITULO = "API REST para gerenciar sessões de votação";
     private static final String VERSAO = "SNAPSHOT";
 
     @Bean

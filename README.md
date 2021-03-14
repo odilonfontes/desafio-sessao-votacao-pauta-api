@@ -1,7 +1,7 @@
 desafio-sessao-votacao-api :construction:
 ------------------------
 
-API REST para gerenciar sessões de votação em pauta
+API REST para gerenciar sessões de votação
 
 Requisitos
 ------------------------
