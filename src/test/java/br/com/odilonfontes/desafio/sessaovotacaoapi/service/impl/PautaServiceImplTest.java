@@ -45,7 +45,7 @@ public class PautaServiceImplTest {
             pautaDTO = new PautaDTO();
         }
 
-        @DisplayName("Dado que possui dados válidos, deveria salvar")
+        @DisplayName("Dado que possui dados válidos, deveria salvar a pauta")
         @Test
         void salvar() {
             when(pautaMapperMock.converterParaEntidade(any())).thenReturn(any());
@@ -63,7 +63,7 @@ public class PautaServiceImplTest {
     class AoChamarMetodoConsultar {
         Set<PautaDTO> pautasDTO;
 
-        @DisplayName("Dado que possua pautas cadastradas, deveria retornar todas as pautas")
+        @DisplayName("Dado que possua pautas cadastradas, deveria retornar todas os registros")
         @Test
         void consultarTodasPautas() {
             pautasDTO = pautaService.consultarTodasPautas();

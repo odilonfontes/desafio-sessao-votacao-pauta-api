@@ -56,7 +56,7 @@ public class SessaoVotacaServiceImplTest {
             sessaoVotacaoDTO = gerarSessaoVotacaoDTO(sessaoVotacao);
         }
 
-        @DisplayName("Dado que possui dados válidos, deveria salvar")
+        @DisplayName("Dado que possui dados válidos, deveria salvar a sessão de votação")
         @Test
         void salvar() {
             when(aberturaSessaoVotacaoMapperMock.converterParaEntidade(any())).thenReturn(sessaoVotacao);
