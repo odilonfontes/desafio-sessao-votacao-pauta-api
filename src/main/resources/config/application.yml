@@ -10,3 +10,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate.format_sql: true
+  datasource:
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/desafiosessaovotacaopautaapi}
+    username: ${JDBC_DATABASE_USERNAME:desafiosessaovotacaopautaapi}
+    password: ${JDBC_DATABASE_PASSWORD:desafiosessaovotacaopautaapi}
