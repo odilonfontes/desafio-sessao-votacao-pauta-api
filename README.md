@@ -29,7 +29,7 @@ Para construir a aplicação
 Execute os comandos abaixo:
 
 	$ cd desafio-sessao-votacao-api
-	$ mvn clean install -DskipTests
+	$ mvn clean install
 
 Para executar a aplicação
 ------------------------
