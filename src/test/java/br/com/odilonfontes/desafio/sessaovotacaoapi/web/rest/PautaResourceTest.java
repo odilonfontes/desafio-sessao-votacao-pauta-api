@@ -86,7 +86,7 @@ public class PautaResourceTest {
 
     @DisplayName("Ao chamar método consultarTodasPautas")
     @Nested
-    class AoChamarMetodoConsultarPautas {
+    class AoChamarMetodoConsultarTodasPautas {
         Set<PautaDTO> pautasDTO;
 
         @BeforeEach
