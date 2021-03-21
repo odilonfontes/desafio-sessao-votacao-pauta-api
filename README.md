@@ -38,7 +38,7 @@ Execute os comandos abaixo:
 
 	$ cd desafio-sessao-votacao-api
 	$ docker-compose -f src/main/docker/postgressql.yml up -d
-	$ mvn spring-boot:run -Dspring-boot.run.profiles=dev
+	$ mvn spring-boot:run
 
 Documentação
 ------------------------
